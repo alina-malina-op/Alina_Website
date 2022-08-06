@@ -30,10 +30,10 @@ app.delete('/api/contacts/:id', (req, res) => { //:id - id элемента ко
 
 //нижние запросы должны отрабатываться последними
 
-app.use(express.static(path.resolve(__dirname, 'docs'))) //для корректности обозначаем папку как статическую, static-метод(там находится папка которую нужно сделать статической); resolve-преобразует пути в абсолютный путь; например если не преобразуем то файл js не подтянется со всеми
+app.use(express.static(path.resolve(__dirname, 'client'))) //для корректности обозначаем папку как статическую, static-метод(там находится папка которую нужно сделать статической); resolve-преобразует пути в абсолютный путь; например если не преобразуем то файл js не подтянется со всеми
 
 app.get('*', (req, res) => { //метод get по любым роутам (*) - express будет смотреть за любыми get апросами которые существуют у нас
-    res.sendFile(path.resolve(__dirname, 'docs', 'index.html')) // sendFile - вызываем определённый файл
+    res.sendFile(path.resolve(__dirname, 'client', 'index.html')) // sendFile - вызываем определённый файл
 })
 
 app.listen(3000, () => console.log('Serv port 3000...'))
